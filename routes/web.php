@@ -20,7 +20,7 @@ Route::get('/', function () {
 
 
 use App\Http\Controllers\HomeController;
-Route::get('/home', [RandomController::class, 'index']);
+Route::get('/home', [HomeController::class, 'index']);
 
 
-Route::get('home/{naam}',[RandomController::class,'index']);
+Route::get('home/{naam}',[HomeController::class,'index']);
