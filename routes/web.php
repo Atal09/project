@@ -19,8 +19,12 @@ Route::get('/', function () {
 
 
 
-use App\Http\Controllers\HomeController;
-Route::get('/home', [HomeController::class, 'index']);
+use App\Http\Controllers\HomePageController;
+Route::get('/home_page', [HomePageController::class, 'index']);
 
 
-Route::get('home/{naam}',[HomeController::class,'index']);
+Route::get('home_page/{naam}',[HomePageController::class,'index']);
+
+Route::get('about',[AboutController::class, 'show'])->name('about');
+Route::get('product',[ProductController::class,'show'])->name('product');
+Route::get('contact',[ContactController::class,'show'])->name('contact');
