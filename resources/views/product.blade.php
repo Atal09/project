@@ -4,9 +4,11 @@
     <div class="container">
         <h2>Onze Producten</h2>
         <div>
-            <li>PC 1</li>
-            <li>Laptop 1</li>
-            <li>PC 2</li>
+
+            @php
+            $table ='reviews';
+             $columns = \Illuminate\Support\Facades\Schema::getColumnListing($table);
+            @endphp
 
         </div>
     </div>
