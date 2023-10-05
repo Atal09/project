@@ -3,13 +3,12 @@
 @section('content')
     <div class="container">
         <h2>Onze Producten</h2>
-        <div>
+        @foreach($products as $products)
+            <p>{{$products->id}}</p>
+            <p>{{$products->title}}</p>
+            <p>{{$products->price}}</p>
 
-            @php
-            $table ='reviews';
-             $columns = \Illuminate\Support\Facades\Schema::getColumnListing($table);
-            @endphp
-
-        </div>
+        @endforeach
     </div>
 @endsection
+

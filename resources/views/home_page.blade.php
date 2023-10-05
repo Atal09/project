@@ -2,7 +2,7 @@
 
 
 
-@extends('layout.web')
+@extends('layouts.web')
 
 @section('content')
     <section>

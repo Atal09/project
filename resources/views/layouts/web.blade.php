@@ -17,6 +17,7 @@
             <li><a href="/" class="hover:text-gray-400">Home</a></li>
             <li><a href="/product" class="hover:text-gray-400">Producten</a></li>
             <li><a href="/contact" class="hover:text-gray-400">Contact</a></li>
+
             <li><a href="/about" class="hover:text-gray-400">Over Ons</a></li>
         </ul>
     </div>

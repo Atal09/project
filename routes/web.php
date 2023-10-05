@@ -25,6 +25,17 @@ Route::get('/home_page', [HomePageController::class, 'index']);
 
 Route::get('home_page/{naam}',[HomePageController::class,'index']);
 
-Route::get('about',[AboutController::class, 'show'])->name('about');
-Route::get('product',[ProductController::class,'show'])->name('product');
-Route::get('contact',[ContactController::class,'show'])->name('contact');
+
+
+use App\Http\Controllers\ProductController;
+Route::get('/product',[ProductController::class,'index']);
+
+use App\Http\Controllers\ContactController;
+Route::get('/contact',[ContactController::class,'index']);
+
+use App\Http\Controllers\AboutController;
+Route::get('/about', [AboutController::class, 'index'])->name('about');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

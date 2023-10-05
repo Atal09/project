@@ -4,23 +4,35 @@
 namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
+
 class ProductController extends Controller
 {
-    public function show($id)
-    {
-        $product = Product::find($id);
 
-        return view('product.show', ['product' => $product]);
-    }
     public function index()
     {
-        $product = new Product();
-        $product->title = 'PC';
-        $product->price = 1050;
+        $products=
 
-        return view('product.product', ['product' => $product]);
+        $products = Product::all();
+
+
+        return view('product',compact('products'));
     }
+    public function create(){
 
+
+    }
+    public function edit($id){
+
+
+    }
+    public function update($id){
+
+
+    }
+    public function destroy($id){
+
+
+    }
 
 
 }

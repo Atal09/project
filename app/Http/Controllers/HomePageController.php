@@ -14,5 +14,6 @@ class HomePageController extends Controller
         }
 
         return view('home_page', compact('welkomstTekst'));
+        return view('about');
     }
 }
