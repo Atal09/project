@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+Route::get('ProductController@index');
 
 use App\Http\Controllers\HomePageController;
 Route::get('/home_page', [HomePageController::class, 'index']);
@@ -29,6 +29,8 @@ Route::get('home_page/{naam}',[HomePageController::class,'index']);
 
 use App\Http\Controllers\ProductController;
 Route::get('/product',[ProductController::class,'index']);
+Route::get('/product/create', [ProductController::class, 'create']);
+Route::get('/product/store', [ProductController::class, 'store']);
 
 use App\Http\Controllers\ContactController;
 Route::get('/contact',[ContactController::class,'index']);
