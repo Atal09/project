@@ -20,7 +20,7 @@ class ProductController extends Controller
     }
     public function create(){
         return view('product.create');
-
+        // if admin
 
     }
     public function edit(Product $product){
@@ -42,13 +42,10 @@ class ProductController extends Controller
         $product->price = $request->input('price');
 
         $product->save();
-        redirect()->route('product.product');
+        return redirect()->route('product.product');
     }
 
-//    public function show(){
-//
-//
-//    }
+
     public function update(Request $request, Product $product){
         $request->validate([
             'name'=>'required',
