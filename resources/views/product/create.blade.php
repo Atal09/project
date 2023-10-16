@@ -2,6 +2,7 @@
 
 @section('content')
     <main>
+
         <section>
             <form method="post" action="{{ route('product.store') }}">
                 @csrf
@@ -10,6 +11,7 @@
                     <button type="submit">Save</button>
                 </div>
                 <div>
+
                     <label>Name</label>
                     <input type="text" name="name" value="{{ old('name') }}">
                     @error('name')
