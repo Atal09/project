@@ -1,34 +1,41 @@
-
 @extends('layouts.app')
 
 @section('content')
     <div class="container">
-        <h2>Onze Producten
-        @foreach($products as $product)
+        <h2>Products</h2>
 
-                <tr>
-                    <td colspan="8" class="has-text-centered">&copy; Mijn reserveringen</td>
-                </tr>
+        @auth
+            <a href="{{ route('product.create') }}" class="btn btn-primary mb-3">Create Product</a>
+        @endauth
+
+        <table class="table">
+            <thead>
             <tr>
-            <td>{{$product->id}}</td>
-            <td>{{$product->title}}</td>
-            <td>{{$product->price}}</td>
-
-
-                <td>
-                    <form method="post" action="{{ route('product.destroy', ['product' => $product]) }}">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit">Delete</button>
-                    </form>
-                </td>
-                <td>
-{{--                    <form method="get" action="{{ route('product.edit', ['product' => $product]) }}">--}}
-{{--                        <button type="submit">Edit</button>--}}
-{{--                    </form>--}}
-                </td>
-
+                <th>ID</th>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Actions</th>
             </tr>
-        @endforeach
+            </thead>
+            <tbody>
+            @foreach($products as $product)
+                <tr>
+                    <td>{{ $product->id }}</td>
+                    <td>{{ $product->title }}</td>
+                    <td>{{ $product->price }}</td>
+                    <td>
+                        @auth
+                            <a href="{{ route('product.edit', ['product' => $product]) }}" class="btn btn-primary">Edit</a>
+                            <form method="post" action="{{ route('product.destroy', ['product' => $product]) }}" class="d-inline">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        @endauth
+                    </td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
     </div>
 @endsection

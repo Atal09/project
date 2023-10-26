@@ -25,15 +25,14 @@ Route::get('/home_page', [HomePageController::class, 'index']);
 
 Route::get('home_page/{naam}',[HomePageController::class,'index']);
 
-
+//product
 
 use App\Http\Controllers\ProductController;
 Route::get('/product', [ProductController::class, 'index'])->name('product.product');
-Route::get('/product/create', [ProductController::class, 'create']);
 
-Route::post('/product/store', [ProductController::class, 'store'])->name('product.store');
 
-Route::delete('/product/{product}', [ProductController::class,'destroy'])->name('product.destroy');
+
+
 
 
 use App\Http\Controllers\ContactController;
@@ -45,3 +44,16 @@ Route::get('/about', [AboutController::class, 'index'])->name('about');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//admin
+
+
+Route::middleware(['admin'])->group(function () {
+    Route::get('/product/create', [ProductController::class, 'create'])->name('product.create');
+
+
+    Route::post('/product/store', [ProductController::class, 'store'])->name('product.store');
+    Route::get('/product/{product}/edit', [ProductController::class, 'edit'])->name('product.edit');
+    Route::delete('/product/{product}', [ProductController::class,'destroy'])->name('product.destroy');
+    Route::patch('/product/{product}', [ProductController::class, 'update'])->name('product.update');
+});

@@ -20,12 +20,9 @@ class ProductController extends Controller
     }
     public function create(){
         return view('product.create');
-
     }
     public function edit(Product $product){
-        return view('product.edit');
-
-
+        return view('product.edit', compact('product'));
     }
     public function store(Request $request){
         $request->validate([

@@ -21,8 +21,10 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
-    {
-        return view('home');
-    }
+//    public function index()
+//    {
+//        $name = request('name');
+//        $users = DB::select("SELECT * FROM users WHERE name = :name", ['name' => $name]);
+//        return view('home', ['users' => $users]);
+//    }
 }
