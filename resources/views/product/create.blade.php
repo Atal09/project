@@ -24,6 +24,26 @@
                     <p>{{ $message }}</p>
                     @enderror
                 </div>
+                <div>
+                    <label for="year">Year</label>
+                    <select name="year" class="form-control">
+                        <option value="">Selecteer jaar</option>
+                        @php
+                            $startYear = 2019;
+                            $currentYear = date('Y');
+                        @endphp
+
+                        @for ($year = $currentYear; $year >= $startYear; $year--)
+                            <option value="{{ $year }}" {{ (old('year') == $year) ? 'selected' : '' }}>{{ $year }}</option>
+                        @endfor
+                    </select>
+
+                    @error('year')
+                    <p>{{ $message }}</p>
+                    @enderror
+                </div>
+
+
 
             </form>
         </section>

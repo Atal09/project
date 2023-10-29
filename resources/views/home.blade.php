@@ -15,11 +15,7 @@
                         @endif
 
                         {{ __('You are logged in!') }}
-                        <ul>
-                            @foreach ($users as $user)
-                                <li>{{ $user->name }}</li>
-                            @endforeach
-                        </ul>
+
                     </div>
                 </div>
             </div>

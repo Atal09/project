@@ -38,14 +38,14 @@ class User extends Authenticatable
      *
      * @var array<string, string>
      */
+
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
-
-
+// Functie om te controleren of de gebruiker een beheerder is
     public function isAdmin()
     {
-        return $this->username === 'admin09' && $this->password === 'admin69';
+        return $this->id === 0;
     }
 }
